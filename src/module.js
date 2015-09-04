@@ -1,1 +1,1 @@
-angular.module('angularfire-auth-multiple', ['firebase']);
+angular.module('angularfire-multi-auth', ['firebase']);
