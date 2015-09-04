@@ -1,5 +1,5 @@
 'use strict';
-angular.module('angularfire-auth-multiple')
+angular.module('angularfire-multi-auth')
     .config(['$provide', function ($provide) {
         $provide.decorator('$firebaseAuth', ['$delegate', '$q', '$window', 'FBURL_ALTERNATE',  function ($delegate, $q, $window, FBURL_ALTERNATE) {
             var construct = $delegate;
