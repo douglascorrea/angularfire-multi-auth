@@ -157,7 +157,7 @@ angular.module('angularfire-multi-auth')
                                         var userMappingRef = new Firebase(ref.root() + '/userMapping');
                                         var userMappingRec = {};
                                         userMappingRec[user.uid] = authGroup.key();
-                                        userMappingRef.set(userMappingRec, function () {
+                                        userMappingRef.update(userMappingRec, function () {
                                             currentSession.authGroup = authGroup.key();
                                             user.authGroup = authGroup.key();
                                             $window.localStorage.setItem('firebase:session::' + domain, JSON.stringify(currentSession));

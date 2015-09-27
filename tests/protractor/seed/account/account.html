@@ -1,0 +1,120 @@
+<h2>Account</h2>
+
+<form>
+    <fieldset>
+        <legend>Profile</legend>
+
+        <label>
+            <span>Name:</span>
+            <input type="text" name="name" ng-model="profile.name"/>
+        </label>
+
+        <label>
+            <span>Email:</span>
+            <br/>{{profile.email}}
+        </label>
+
+        <label>
+            <span>Hobby:</span>
+            <input type="text" name="hobby" ng-model="profile.hobby"/>
+        </label>
+
+        <label>
+            <span>Dog's Name:</span>
+            <input type="text" name="dog" ng-model="profile.dog"/>
+        </label>
+    </fieldset>
+</form>
+
+<form>
+    <fieldset>
+        <legend>Change Password</legend>
+
+        <label>
+            <span>Old Password:</span>
+            <input type="password" ng-keypress="clear()" ng-model="oldpass"/>
+        </label>
+
+        <label>
+            <span>New Password:</span>
+            <input type="password" ng-keypress="clear()" ng-model="newpass"/>
+        </label>
+
+        <label>
+            <span>Confirm New Password:</span>
+            <input type="password" ng-keypress="clear()" ng-model="confirm"/>
+        </label>
+
+        <button ng-click="changePassword(oldpass, newpass, confirm)">change password</button>
+
+        <p class="error" ng-show="err">{{err}}</p>
+
+        <p class="good" ng-show="msg">{{msg}}</p>
+    </fieldset>
+</form>
+
+<form>
+    <fieldset>
+        <legend>Change Email</legend>
+
+        <label>
+            <span>New Email:</span>
+            <input type="text" ng-keypress="clear()" ng-model="newEmail"/>
+        </label>
+
+        <label>
+            <span>Password:</span>
+            <input type="password" ng-keypress="clear()" ng-model="pass"/>
+        </label>
+
+        <button ng-click="changeEmail(pass, newEmail)">update email</button>
+
+        <p class="error" ng-show="emailerr">{{emailerr}}</p>
+
+        <p class="good" ng-show="emailmsg">{{emailmsg}}</p>
+    </fieldset>
+</form>
+
+<form>
+    <fieldset>
+        <legend>Associated Auths</legend>
+        <ul>
+            <li ng-if="authGroup.facebook"><b>Facebook: </b>{{authGroup.facebook}} [<a href=""
+                                                                                       ng-click="disassociateSocial(authGroup.facebook, 'facebook')">X</a>]
+            </li>
+            <li ng-if="authGroup.twitter"><b>Twitter: </b>{{authGroup.twitter}} [<a href=""
+                                                                                    ng-click="disassociateSocial(authGroup.twitter, 'twitter')">X</a>]
+            </li>
+            <li ng-if="authGroup.google"><b>Google: </b>{{authGroup.google}} [<a href=""
+                                                                                 ng-click="disassociateSocial(authGroup.google, 'google')">X</a>]
+            </li>
+            <li ng-if="authGroup.Github"><b>Github: </b>{{authGroup.github}} [<a href=""
+                                                                                 ng-click="disassociateSocial(authGroup.github, 'github')">X</a>]
+            </li>
+            <li ng-if="authGroup.password"><b>Password: </b>{{authGroup.password}} [<a href=""
+                                                                                       ng-click="disassociateSocial(authGroup.password, 'password')">X</a>]
+            </li>
+        </ul>
+        <hr/>
+        <legend>Associate User</legend>
+        <button ng-if="!authGroup.facebook" ng-click="associateSocial('facebook')">Facebook</button>
+        <button ng-if="!authGroup.twitter" ng-click="associateSocial('twitter')">Twitter</button>
+        <button ng-if="!authGroup.google" ng-click="associateSocial('google')">Google</button>
+        <button ng-if="!authGroup.github" ng-click="associateSocial('github')">Github</button>
+        <button ng-if="!authGroup.password" ng-click="assoc.showAssoc = true">Email</button>
+        <div ng-show="assoc.showAssoc">
+            <label>
+                <span>Email:</span>
+                <input type="email" ng-keypress="clear()" ng-model="assoc.emailAssoc"/>
+            </label>
+
+            <label>
+                <span>Password:</span>
+                <input type="password" ng-keypress="clear()" ng-model="assoc.passAssoc"/>
+            </label>
+            <button ng-click="associatePassword()">Associate Email/Password</button>
+        </div>
+    </fieldset>
+</form>
+
+<button ng-click="logout()">Log Out</button>
