@@ -80,4 +80,4 @@ BUT I really really want and appreciate your help. Let's do this a "many awesome
 
 Please go ahead open issues, create PRs and help me build this useful library.
 
-If you want you can ping me on twitter (@douglas_correa)[http://twitter.com/douglas_correa]
+If you want you can ping me on twitter [@douglas_correa](http://twitter.com/douglas_correa)
