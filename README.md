@@ -69,7 +69,7 @@ Now you should protect entities based on `authGroup` instead of the uid. To do t
 security rule to grab the 'authGroup' of the logged user on Security rules:
 
 ```
-oot.child('userMapping').child(auth.uid).val()
+root.child('userMapping').child(auth.uid).val()
 ```
 
 ## Project Status
