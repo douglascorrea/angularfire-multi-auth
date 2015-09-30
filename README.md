@@ -1,5 +1,7 @@
 # Angularfire Multi Auth
 
+[![Bower version](https://badge.fury.io/bo/angularfire-multi-auth.svg)](http://badge.fury.io/bo/angularfire-multi-auth)
+
 ## The problem
 If you wanna use the Signup/Login feature that [Firebase](https://firebase.com) brings out of the box
 (formely Simple Login) you may face one problem: **How to handle multiple login provides for the same user?**
