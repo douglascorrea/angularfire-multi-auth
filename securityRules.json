@@ -1,14 +1,16 @@
-"authGroup": {
-  "$authGroup":{
-    ".write": "(newData.child(auth.provider).val() === auth.uid && !data.exists()) || data.child(auth.provider).val() === auth.uid",
-    ".read": "data.child(auth.provider).val() === auth.uid",
-    ".indexOn": ["password", "facebook", "github", "twitter", "google"],
-  }
-},
-"userMapping":{
-  ".write": "root.child('authGroup').child(newData.child(auth.uid).val()).child(auth.provider).val() === auth.uid",
-  ".read": "(root.child('authGroup').child(data.child(auth.uid).val()).child(auth.provider).val() === auth.uid)",
-  "$userMapping":{
-    ".read": "!data.exists()"
+"rules": {
+  "authGroup": {
+    "$authGroup":{
+      ".write": "(newData.child(auth.provider).val() === auth.uid && !data.exists()) || data.child(auth.provider).val() === auth.uid",
+      ".read": "data.child(auth.provider).val() === auth.uid",
+      ".indexOn": ["password", "facebook", "github", "twitter", "google"],
+    }
+  },
+  "userMapping":{
+    ".write": "root.child('authGroup').child(newData.child(auth.uid).val()).child(auth.provider).val() === auth.uid",
+    ".read": "(root.child('authGroup').child(data.child(auth.uid).val()).child(auth.provider).val() === auth.uid)",
+    "$userMapping":{
+      ".read": "!data.exists()"
+    }
   }
 }

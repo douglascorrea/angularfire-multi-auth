@@ -1,7 +1,7 @@
 {
   "name": "angularfire-multi-auth",
   "description": "An unofficially library that makes AngularFire support multiple auth providers for the same account",
-  "version": "0.0.0",
+  "version": "0.0.4",
   "authors": [
     "Douglas Silvio Corrêa <me@dougcorrea.com> (http://twitter.com/douglas_correa)"
   ],
