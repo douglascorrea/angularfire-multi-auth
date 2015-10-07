@@ -135,19 +135,29 @@
                     }
 
                     /*
-                     This method is being decorated to get the authGroup associated to the user that is logging in via anonymous method.
-                     */
-                    function authAnonymously(options) {
-                        var deferred = $q.defer();
-                        base.$authAnonymously(options)
-                            .then(function (user) {
-                                updateOrAddUser(user, deferred);
-                            })
-                            .catch(function (err) {
-                                deferred.reject(err);
-                            });
-                        return deferred.promise;
-                    }
+					 This method is being decorated to get the authGroup associated to the user that is logging in via anonymous method.
+					 */
+					function authAnonymously(options) {
+						/*jshint -W069 */
+						var deferred = $q.defer();
+						var currentUser = auth.$getAuth();
+						var authGroupRef = new Firebase(ref.root() + '/authGroup/' + currentUser.authGroup);
+						authGroupRef.orderByKey().equalTo('password').once('value', function (snapshot) {
+							var existsAuthGroup = (snapshot.val() !== null);
+							if (currentUser.provider === 'anonymous' || existsAuthGroup) {
+								deferred.resolve(currentUser);
+							} else {
+								base.$authAnonymously(options)
+									.then(function (user) {
+										updateOrAddUser(user, deferred);
+									})
+									.catch(function (err) {
+										deferred.reject(err);
+									});
+							}
+						});
+						return deferred.promise;
+					}
 
                     /*
                      This method will be used to associate a social account to the current logged user
