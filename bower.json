@@ -5,10 +5,10 @@
   "authors": [
     "Douglas Silvio Corrêa <me@dougcorrea.com> (http://twitter.com/douglas_correa)"
   ],
-  "homepage": "https://github.com/douglascorrea/angularfire-multi-auth",
+  "homepage": "https://github.com/luanven/angularfire-multi-auth",
   "repository": {
     "type": "git",
-    "url": "https://github.com/douglascorrea/angularfire-multi-auth.git"
+    "url": "https://github.com/luanven/angularfire-multi-auth.git"
   },
   "license": "MIT",
   "keywords": [
