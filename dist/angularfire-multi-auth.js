@@ -1,5 +1,4 @@
 angular.module('angularfire-multi-auth', ['firebase']);
-angular.module('angularfire-multi-auth', ['firebase']);
 (function () {
     'use strict';
     angular.module('angularfire-multi-auth')
