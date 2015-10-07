@@ -4,9 +4,11 @@ angular.module('angularfire-multi-auth', ['firebase']);
     angular.module('angularfire-multi-auth')
         .config(['$provide', function ($provide) {
             $provide.decorator('$firebaseAuth', ['$delegate', '$q', '$window', 'FBURL_ALTERNATE', function ($delegate, $q, $window, FBURL_ALTERNATE) {
+				/* jshint validthis: true */
                 var construct = $delegate;
 
                 $delegate = function (ref) {
+					
                     var auth;
                     var firebaseSession;
                     var base;
@@ -78,7 +80,7 @@ angular.module('angularfire-multi-auth', ['firebase']);
                         base.$authWithPassword(credentials)
                             .then(function (user) {
                                 var authGroupRef = new Firebase(ref.root() + '/authGroup');
-                                authGroupRef.orderByChild(user.provider).equalTo(user.uid).on("child_added", function (snapshot) {
+                                authGroupRef.orderByChild(user.provider).equalTo(user.uid).on('child_added', function (snapshot) {
                                     snapshot.ref().remove(function (err) {
                                         if (!err) {
                                             auth.$unauth();
@@ -158,14 +160,14 @@ angular.module('angularfire-multi-auth', ['firebase']);
                         var currentUser = auth.$getAuth();
 
                         var authGroupRef = new Firebase(ref.root() + '/authGroup/' + currentUser.authGroup);
-                        authGroupRef.orderByKey().equalTo(provider).once("value", function (snapshot) {
+                        authGroupRef.orderByKey().equalTo(provider).once('value', function (snapshot) {
                             if (provider === currentUser.provider || snapshot.val() !== null) {
                                 deferred.reject('You are already using a ' + provider + ' account.');
                             } else {
                                 newAuth.$authWithOAuthPopup(provider)
                                     .then(function (user) {
                                         var userMappingRef = new Firebase(ref.root() + '/userMapping/' + user.uid);
-                                        userMappingRef.once("value", function (snapshot) {
+                                        userMappingRef.once('value', function (snapshot) {
                                             var exists = (snapshot.val() !== null);
                                             if (exists) {
                                                 deferred.reject('You are already associated to another account');
@@ -241,7 +243,7 @@ angular.module('angularfire-multi-auth', ['firebase']);
                                 base.$createUser(credentials)
                                     .then(function (user) {
                                         var userMappingRef = new Firebase(ref.root() + '/userMapping/' + user.uid);
-                                        userMappingRef.once("value", function (snapshot) {
+                                        userMappingRef.once('value', function (snapshot) {
                                             var exists = (snapshot.val() !== null);
                                             if (exists) {
                                                 deferred.reject('You are already associated to another account');
@@ -296,7 +298,7 @@ angular.module('angularfire-multi-auth', ['firebase']);
                         */
                         function extractDomain(url) {
                             var domain;
-                            if (url.indexOf("://") > -1) {
+                            if (url.indexOf('://') > -1) {
                                 domain = url.split('/')[2];
                             } else {
                                 domain = url.split('/')[0];
@@ -331,7 +333,7 @@ angular.module('angularfire-multi-auth', ['firebase']);
                     function updateOrAddUser(user, deferred) {
                         var currentSession = firebaseSession.get();
                         var userMappingRef = new Firebase(ref.root() + '/userMapping/' + user.uid);
-                        userMappingRef.once("value", function (snapshot) {
+                        userMappingRef.once('value', function (snapshot) {
                             var exists = (snapshot.val() !== null);
                             if (exists) {
                                 currentSession.authGroup = snapshot.val();
