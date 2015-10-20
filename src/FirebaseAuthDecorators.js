@@ -164,7 +164,7 @@
 					/*
 					 This method will be used to associate a social account to the current logged user
 					 */
-					function associateSocial(provider) {
+					function associateSocial(provider, options) {
 						var deferred = $q.defer();
 						var newRef = new Firebase(FBURL_ALTERNATE);
 						var newAuth = $delegate(newRef);
@@ -175,7 +175,7 @@
 							if (provider === currentUser.provider || snapshot.val() !== null) {
 								deferred.reject('You are already using a ' + provider + ' account.');
 							} else {
-								newAuth.$authWithOAuthPopup(provider)
+								newAuth.$authWithOAuthPopup(provider, options)
 									.then(function (user) {
 										var userMappingRef = new Firebase(ref.root() + '/userMapping/' + user.uid);
 										userMappingRef.once('value', function (snapshot) {
