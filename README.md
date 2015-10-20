@@ -80,7 +80,7 @@ I started it alone, but we are already 3 awesome people building this library:
 
 [@douglascorrea](https://github.com/douglascorrea)
 
-[@luaven](https://github.com/luaven)
+[@luanven](https://github.com/luanven)
 
 [@gilhanan](https://github.com/gilhanan)
 
