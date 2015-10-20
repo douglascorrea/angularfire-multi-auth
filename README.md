@@ -76,9 +76,13 @@ root.child('userMapping').child(auth.uid).val()
 
 ## Project Status
 
-Besides I use "we" on every part of this README, it is a "only man show", so it is far to be the library I think it could be.
+I started it alone, but we are already 3 awesome people building this library:
 
-BUT I really really want and appreciate your help. Let's do this a "many awesome contributors show".
+@douglascorrea (me)
+@luaven
+gilhanan
+
+BUT we still really really want and appreciate your help. Let's do this a "many awesome contributors show".
 
 Please go ahead open issues, create PRs and help me build this useful library.
 
