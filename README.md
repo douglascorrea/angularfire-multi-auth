@@ -78,9 +78,11 @@ root.child('userMapping').child(auth.uid).val()
 
 I started it alone, but we are already 3 awesome people building this library:
 
-@douglascorrea (me)
-@luaven
-gilhanan
+[@douglascorrea](https://github.com/douglascorrea)
+
+[@luaven](https://github.com/luaven)
+
+[@gilhanan](https://github.com/gilhanan)
 
 BUT we still really really want and appreciate your help. Let's do this a "many awesome contributors show".
 
