@@ -26,6 +26,7 @@
                             $removeUser: auth.$removeUser,
                             $authWithPassword: auth.$authWithPassword,
                             $authWithOAuthPopup: auth.$authWithOAuthPopup,
+                            $authWithOAuthToken: auth.$authWithOAuthToken,
                             $authAnonymously: auth.$authAnonymously
                         };
 
@@ -33,6 +34,7 @@
                         auth.$removeUser = removeUser;
                         auth.$authWithPassword = authWithPassword;
                         auth.$authWithOAuthPopup = authWithOAuthPopup;
+                        auth.$authWithOAuthToken = authWithOAuthToken;
                         auth.$authAnonymously = authAnonymously;
                         auth.$associateSocial = associateSocial;
                         auth.$disassociateSocial = disassociateSocial;
@@ -125,6 +127,21 @@
                     function authWithOAuthPopup(provider, options) {
                         var deferred = $q.defer();
                         base.$authWithOAuthPopup(provider, options)
+                            .then(function (user) {
+                                updateOrAddUser(user, deferred);
+                            })
+                            .catch(function (err) {
+                                deferred.reject(err);
+                            });
+                        return deferred.promise;
+                    }
+
+                    /*
+                     This method is being decorated to get the authGroup associated to the user that is logging in via social accounts.
+                     */
+                    function authWithOAuthToken(provider, credentials, options) {
+                        var deferred = $q.defer();
+                        base.$authWithOAuthToken(provider, credentials, options)
                             .then(function (user) {
                                 updateOrAddUser(user, deferred);
                             })
