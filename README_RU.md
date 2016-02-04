@@ -14,25 +14,23 @@
 
 Итак, по этой причине, я создал **angularfire-multi-auth**
 
-## What is angularfire-multi-auth?
+## Что такое angularfire-multi-auth?
 
-It's a factory decorator for $firebaseAuth that abstract the complexity of creating the structure needed for use multiple
-login providers for the same user.
+Это декоратор фабрики для $firebaseAuth который абстрагируется от сложности создания структуры необходимой для использования множественного логина для одного пользователя.
 
-## How to install it?
+## Как устанавливать?
 
-You need to install it and add it on your index.html file:
+Вам необходимо установить и добавить его в файл index.html
 
 ```
 bower install angularfire-multi-auth --save
 ```
 
-Install the basic security rule contained on file securityRules.json
+Уствновите основные правила безопасности содержащиеся в файле securityRules.json
 
-And create an Angular Constant calle `FBURL_ALTERNATE` that should contain the alternative Firebase URL for being used
-on `associateSocial` feature.
+И создайте константу Angular с именем `FBURL_ALTERNATE` которая содержит альтернативный Firebase URL для использования функции `associateSocial`.
 
-And you will use Angularfire normally.
+И используйте Angularfire обычным способом.
 
 ## Как это работает?
 Для каждого новго пользователья создаваемого `$createUser` или первый раз использовавшего `$authWithOAuthPopup` мы создаём следующие записи в Firebase:
@@ -65,8 +63,7 @@ And you will use Angularfire normally.
 
 
 ## Security Usage
-Now you should protect entities based on `authGroup` instead of the uid. To do that you only need to use the following
-security rule to grab the 'authGroup' of the logged user on Security rules:
+Теперь вы должны защищать объекты, основанные на `authGroup` вместо uid. Для этого вам нужно всего лишь использовать следующее правило безопасности, чтобы отследить 'authGroup' вошедшего пользователя о правилах безопасности:
 
 ```
 root.child('userMapping').child(auth.uid).val()
