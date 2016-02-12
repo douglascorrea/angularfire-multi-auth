@@ -3,7 +3,7 @@
     "$authGroup":{
       ".write": "(newData.child(auth.provider).val() === auth.uid && !data.exists()) || data.child(auth.provider).val() === auth.uid",
       ".read": "data.child(auth.provider).val() === auth.uid",
-      ".indexOn": ["password", "facebook", "github", "twitter", "google"],
+      ".indexOn": ["password", "facebook", "github", "twitter", "google"]
     }
   },
   "userMapping":{
