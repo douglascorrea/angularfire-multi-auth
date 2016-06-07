@@ -1,6 +1,6 @@
 # Angularfire Multi Auth
 
-# This is deprecated since Firebase 3.0 support (Link mutiple auth providers out-of-box)[https://firebase.google.com/docs/auth/web/account-linking] 
+# This repo is deprecated since Firebase 3.0 support [Link mutiple auth providers out-of-box](https://firebase.google.com/docs/auth/web/account-linking) 
 
 [![Bower version](https://badge.fury.io/bo/angularfire-multi-auth.svg)](http://badge.fury.io/bo/angularfire-multi-auth)
 
@@ -12,8 +12,8 @@ If you wanna use the Signup/Login feature that [Firebase](https://firebase.com) 
 ## The solution
 
 From this [question on Stack Overflow](http://stackoverflow.com/questions/15148089/how-can-i-login-with-multiple-social-services-with-firebase),
- Andrew Lee give us a suggestion to accommodate it creating some structure inside Firebase to handle the process. And it
-  is a very good idea. The only problem is the mess you should made on your code to accomplish that.
+Andrew Lee give us a suggestion to accommodate it creating some structure inside Firebase to handle the process. And it
+is a very good idea. The only problem is the mess you should made on your code to accomplish that.
 
 So, this is the reason I've created **angularfire-multi-auth**
 
