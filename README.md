@@ -1,5 +1,7 @@
 # Angularfire Multi Auth
 
+# This is deprecated since Firebase 3.0 support (Link mutiple auth providers out-of-box)[https://firebase.google.com/docs/auth/web/account-linking] 
+
 [![Bower version](https://badge.fury.io/bo/angularfire-multi-auth.svg)](http://badge.fury.io/bo/angularfire-multi-auth)
 
 ## The problem
